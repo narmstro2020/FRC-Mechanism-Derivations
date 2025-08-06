@@ -58,18 +58,20 @@ The voltage drop due to resistance is governed by Ohm's Law.
 > $\Large V_r = IR$
 
 The voltage drop due to the back-emf determined by the angular velocity fo the motor.
-> $\Large V_{emf} = \frac{\omega}{K_v}$
+> $\Large V_{emf} = \frac{\omega_m}{K_v}$
 
 This gives us the following relationship between $\Large V_m$, $\Large I_m$, and $\Large \omega$
 
-> $\Large V_m = I_mR + \frac{\omega}{K_v}$
+> $\Large V_m = I_mR + \frac{\omega_m}{K_v}$
 
 It will be useful later to solve the previous equations for $\Large I_m$.  
 
-> $\Large I_mR = V_m - \frac{\omega}{K_v}$
+> $\Large I_mR = V_m - \frac{\omega_m}{K_v}$
 > 
-> $\Large I_mR = \frac{V_mK_v}{K_v} - \frac{\omega}{K_v}$
+> $\Large I_mR = \frac{V_mK_v}{K_v} - \frac{\omega_m}{K_v}$
 > 
-> $\Large I_m = \frac{V_mK_v}{RK_v} - \frac{\omega}{RK_v}$
+> $\Large I_m = \frac{V_mK_v}{RK_v} - \frac{\omega_m}{RK_v}$
+> 
+> $\Large I_m = \frac{V_m}{R} - \frac{\omega_m}{RK_v}$
 
 

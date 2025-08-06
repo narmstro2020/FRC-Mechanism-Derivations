@@ -42,11 +42,11 @@ velocity relationships to derive a torque equation for a gearbox.
 
 > $\Large \tau_m = K_tI_m - \tau_{s_{m}} sgn(\omega_m)$
 >
-> $\Large \frac{\tau_g}{nG} = K_tI_m - \tau_{s_{g}}sgn(G\omega_g)$
+> $\Large \frac{\tau_g}{nG} = K_tI_m - \tau_{s_{m}}sgn(G\omega_g)$
 >
-> $\Large \frac{\tau_g}{nG} = K_tI_m - \tau_{s_{g}}Gsgn(\omega_g)$
+> $\Large \frac{\tau_g}{nG} = K_tI_m - \tau_{s_{m}}Gsgn(\omega_g)$
 >
-> $\Large \tau_g = nGK_tI_m - \tau_{s_{g}}nG^2sgn(\omega_g)$
+> $\Large \tau_g = nGK_tI_m - \tau_{s_{m}}nG^2sgn(\omega_g)$
 
 ## 2. Angular Acceleration Equation
 
@@ -61,18 +61,18 @@ The net gearbox torque is a product of the moment of inertia of the gearbox and 
 
 This can be used to solve for the angular acceleration of the gearbox in terms of current and angular velocity. 
 
-> $\Large J\alpha_g = nGK_tI_m - \tau_{s_{g}}nG^2sgn(\omega_g)$
+> $\Large J\alpha_g = nGK_tI_m - \tau_{s_{m}}nG^2sgn(\omega_g)$
 > 
-> $\Large \alpha_g = \frac{nGK_t}{J}I_m - \frac{\tau_{s_{g}}nG^2}{J}sgn(\omega_g)$
+> $\Large \alpha_g = \frac{nGK_t}{J}I_m - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
 
 ## 3. System Characterization Model (SysId)
 
 ### Variable Definitions
 
-* $\Large k_s$ : Static friction gain constant
-* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$)
+* $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$
+* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$
 * $\Large k_a$ : Acceleration gain constant
-* $\Large x$ : The state variable (angular position in our case)
+* $\Large x$ : The state variable (angular position in our case). Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$
 * $\Large \dot{x}$: The rate of change of the $\Large x$ (angular velocity in our case)
 * $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (angular acceleration in our case)
 * $\Large u$ : The input used to control the state (current or voltage)
@@ -94,7 +94,7 @@ We can make the following substitutions in the SysId equation to evaluate the ch
 
 > $\Large \dot{x} = \omega_g$, $\Large \ddot{x} = \alpha_g$, $\Large u = I_m$
 > 
-> $\Large \alpha_g = -\frac{k_v}{k_a} \omega + \frac{1}{k_a}I_m - \frac{k_s}{k_a}sgn(\omega)$
+> $\Large \alpha_g = -\frac{k_v}{k_a} \omega_g + \frac{1}{k_a}I_m - \frac{k_s}{k_a}sgn(\omega_g)$
 
 Since $\Large \alpha_g$ doesn't have an $\Large \omega_g$ term then 
 
@@ -105,4 +105,57 @@ Matching the $\Large I_m$ terms gives us.
 > $\Large \frac{1}{k_a} = \frac{nGK_t}{J}$, $\Large k_a = \frac{J}{nGK_t}$
 
 The torque due to static friction needs to be determined experimentally.  However $\Large k_s$ which is determined by SysId is related to the static friction torque as follows.
+
+> $\Large \frac{k_s}{k_a} = \frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s\frac{1}{k_a} = k_s\frac{nGK_t}{J} = \frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s = \frac{J}{nGK_t}\frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s = \frac{\tau_{s_{m}}G}{K_t}$
+
+## 5. Voltage Control Model
+
+Returning our attention to this equation.
+
+> $\Large \alpha_g = \frac{nGK_t}{J}I_m - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
+
+along with this equation from Part 01
+
+> $\Large I_m = \frac{V_m}{R} - \frac{\omega_m}{RK_v}$
+
+We can substitute $\Large I_m$ into the acceleration equation and derive a voltage control model.  
+
+> $\Large \alpha_g = \frac{nGK_t}{J}(\frac{V_m}{R} - \frac{\omega_m}{RK_v}) - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
+> 
+> $\Large \alpha_g = \frac{nGK_t}{RJ}V_m - \frac{nGK_t}{RJK_v}\omega_m - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
+> 
+> $\Large \alpha_g = \frac{nGK_t}{RJ}V_m - \frac{nGK_t}{RJK_v}G\omega_g - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
+> 
+> $\Large \alpha_g = \frac{nGK_t}{RJ}V_m - \frac{nG^2K_t}{RJK_v}\omega_g - \frac{\tau_{s_{m}}nG^2}{J}sgn(\omega_g)$
+
+Performing the following substitutions we can derive the characterization constants $\Large k_s$, $\Large k_v$, and $\Large k_a$
+
+> $\Large \ddot{x} = -\frac{k_v}{k_a} \dot{x} + \frac{1}{k_a}u - \frac{k_s}{k_a}sgn(\dot{x})$
+>
+> $\Large \dot{x} = \omega_g$, $\Large \ddot{x} = \alpha_g$, $\Large u = V_m$
+> 
+> $\Large \alpha_g = -\frac{k_v}{k_a} \omega_g + \frac{1}{k_a}V_m - \frac{k_s}{k_a}sgn(\omega_g)$
+
+Matching the $\Large V_m$ terms gives us 
+
+> $\Large \frac{1}{k_a} = \frac{nGK_t}{RJ}$
+> 
+> $\Large k_a = \frac{RJ}{nGK_t}$
+
+Matching the $\Large \omega_g$ terms gives us 
+
+> $\Large \frac{k_v}{k_a} = \frac{nG^2K_t}{RJK_v}$
+> 
+> $\Large k_v\frac{1}{k_a} = \frac{nG^2K_t}{RJK_v}$
+> 
+> $\Large k_v\frac{nGK_t}{RJ} = \frac{nG^2K_t}{RJK_v}$
+> 
+> $\Large k_v = \frac{G}{K_v}$
+
 
