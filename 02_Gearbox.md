@@ -93,17 +93,17 @@ Solving for $\Large \ddot{x}$ gives us.
 
 We can make the following substitutions in the SysId equation to evaluate the characterization constants.
 
-> $$\Large \dot{x} = \omega_g$, $\Large \ddot{x} = \alpha_g$, $\Large u = I_m$$
+> $$\Large \dot{x} = \omega_g, \Large \ddot{x} = \alpha_g, \Large u = I_m$$
 > 
 > $$\Large \alpha_g = -\frac{k_v}{k_a} \omega_g + \frac{1}{k_a}I_m - \frac{k_s}{k_a}sgn(\omega_g)$$
 
 Since $\Large \alpha_g$ doesn't have an $\Large \omega_g$ term then 
 
-> $$\Large \frac{-k_v}{k_a} = 0$, $\Large k_v = 0$$
+> $$\Large \frac{-k_v}{k_a} = 0, \Large k_v = 0$$
 
 Matching the $\Large I_m$ terms gives us.
 
-> $$\Large \frac{1}{k_a} = \frac{nGK_t}{J}$, $\Large k_a = \frac{J}{nGK_t}$$
+> $$\Large \frac{1}{k_a} = \frac{nGK_t}{J}, \Large k_a = \frac{J}{nGK_t}$$
 
 The torque due to static friction needs to be determined experimentally.  However $\Large k_s$ which is determined by SysId is related to the static friction torque as follows.
 
@@ -139,7 +139,7 @@ Performing the following substitutions we can derive the characterization consta
 
 > $$\Large \ddot{x} = -\frac{k_v}{k_a} \dot{x} + \frac{1}{k_a}u - \frac{k_s}{k_a}sgn(\dot{x})$$
 >
-> $$\Large \dot{x} = \omega_g$, $\Large \ddot{x} = \alpha_g$, $\Large u = V_m$$
+> $$\Large \dot{x} = \omega_g, \Large \ddot{x} = \alpha_g, \Large u = V_m$$
 > 
 > $$\Large \alpha_g = -\frac{k_v}{k_a} \omega_g + \frac{1}{k_a}V_m - \frac{k_s}{k_a}sgn(\omega_g)$$
 
