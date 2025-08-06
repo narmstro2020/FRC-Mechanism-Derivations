@@ -43,33 +43,33 @@ Let's start with the torque equation for the gearbox from the previous section.
 
 The force acting on an object is a product of torque and moment arm.  In this case the moment arm is the radius of the wheel.  
 
-> $\Large \tau_g = rF$
+> $$\Large \tau_g = rF$$
 
 We can also define the following
 
-> $\Large \tau_{s_{m}} = rF_s$
+> $$\Large \tau_{s_{m}} = rF_s$$
 
 This allows us to derive the following.
 
-> $\Large \tau_g = nGK_tI_m - \tau_{s_{m}}nG^2sgn(\omega_g)$
+> $$\Large \tau_g = nGK_tI_m - \tau_{s_{m}}nG^2sgn(\omega_g)$$
 > 
-> $\Large rF = nGK_tI_m - rF_snG^2sgn(\omega_g)$
+> $$\Large rF = nGK_tI_m - rF_snG^2sgn(\omega_g)$$
 
 The velocity of the wheel is determined by
 
-> $\Large v = r\omega_g$
+> $$\Large v = r\omega_g$$
 > 
-> $\Large w_g = \frac{v}{r}$
+> $$\Large w_g = \frac{v}{r}$$
 
 Giving us.
 
-> $\Large rF = nGK_tI_m - rF_snG^2sgn(\frac{v}{r})$
+> $$\Large rF = nGK_tI_m - rF_snG^2sgn(\frac{v}{r})$$
 > 
-> $\Large rF = nGK_tI_m - \frac{1}{r}rF_snG^2sgn(v)$
+> $$\Large rF = nGK_tI_m - \frac{1}{r}rF_snG^2sgn(v)$$
 > 
-> $\Large rF = nGK_tI_m - F_snG^2sgn(v)$
+> $$\Large rF = nGK_tI_m - F_snG^2sgn(v)$$
 >
-> $\Large F = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$
+> $$\Large F = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$$
  
 
 
@@ -83,22 +83,25 @@ Giving us.
 
 The net force on an object is a product of the object's mass and acceleration.
 
-> $\Large F = ma$
+> $$\Large F = ma$$
 
 This can be used to solve for the acceleration of the object by the wheel in terms of current and velocity. 
 
-> $\Large F = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$
+> $$\Large F = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$$
 >
-> $\Large F = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$
+> $$\Large ma = \frac{nGK_tI_m}{r} - \frac{F_snG^2}{r}sgn(v)$$
+> 
+> $$\Large a = \frac{nGK_tI_m}{mr} - \frac{F_snG^2}{mr}sgn(v)$$
+
 
 ## 4. System Characterization Model (SysId)
 
 ### Variable Definitions
 
-* $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$
-* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$
-* $\Large k_a$ : Acceleration gain constant
-* $\Large x$ : The state variable (angular position in our case). Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$
+* $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$ or Volts: $\Large V$
+* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$  or Volts per Radians Per Second: $\Large \frac{Vs}{rad}$
+* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$ or $\Large \frac{Vs^2}{rad}$
+* $\Large x$ : The state variable (angular position in our case). 
 * $\Large \dot{x}$: The rate of change of the $\Large x$ (angular velocity in our case)
 * $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (angular acceleration in our case)
 * $\Large u$ : The input used to control the state (current or voltage)

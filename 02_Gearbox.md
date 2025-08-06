@@ -70,10 +70,10 @@ This can be used to solve for the angular acceleration of the gearbox in terms o
 
 ### Variable Definitions
 
-* $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$
-* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$
-* $\Large k_a$ : Acceleration gain constant
-* $\Large x$ : The state variable (angular position in our case). Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$
+* $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$ or Volts: $\Large V$
+* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$  or Volts per Radians Per Second: $\Large \frac{Vs}{rad}$
+* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$ or $\Large \frac{Vs^2}{rad}$
+* $\Large x$ : The state variable (angular position in our case). 
 * $\Large \dot{x}$: The rate of change of the $\Large x$ (angular velocity in our case)
 * $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (angular acceleration in our case)
 * $\Large u$ : The input used to control the state (current or voltage)
