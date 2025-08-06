@@ -28,7 +28,7 @@ Static friction acts in the direction opposite of the motion (angular velocity).
 The signum function (sgn) will return either 1 or -1 based on the direction of the angular velocity.  
 If no motion then signum gives us 0.  
 This gives us the following.
-> $\Large \tau_m = \tau_{I} - \tau_{s_{m}} sgn(\omega_m)$
+> $$\Large \tau_m = \tau_{I} - \tau_{s_{m}} sgn(\omega_m)$$
 
 ## 2. Relationship between Torque and Electrical Current
 
@@ -40,11 +40,11 @@ This gives us the following.
 The applied motor torque is directly proportional to the electric current running through the motor via the motor-torque
 constant.  
 This gives us the following.
-> $\Large \tau_{I} = K_tI_m$
+> $$\Large \tau_{I} = K_tI_m$$
 
 Substituting this in for equation in section 1 we get the following.
 
-> $\Large \tau_m = K_tI_m - \tau_{s_{m}} sgn(\omega_m)$
+> $$\Large \tau_m = K_tI_m - \tau_{s_{m}} sgn(\omega_m)$$
 
 ## 3. Relationship between Current, Voltage, and Angular Velocity
 
@@ -60,29 +60,29 @@ Substituting this in for equation in section 1 we get the following.
 Kirchoff's Voltage Law (KVL) states that the sum of the voltages on a motor must be 0.  
 This gives us the following
 
-> $\Large V_m - V_r - V_{emf} = 0$
+> $$\Large V_m - V_r - V_{emf} = 0$$
 >
-> $\Large V_m = V_r + V_{emf}$
+> $$\Large V_m = V_r + V_{emf}$$
 >
 
 The voltage drop due to resistance is governed by Ohm's Law.
-> $\Large V_r = IR$
+> $$\Large V_r = IR$$
 
 The voltage drop due to the back-emf determined by the angular velocity fo the motor.
-> $\Large V_{emf} = \frac{\omega_m}{K_v}$
+> $$\Large V_{emf} = \frac{\omega_m}{K_v}$$
 
 This gives us the following relationship between $\Large V_m$, $\Large I_m$, and $\Large \omega$
 
-> $\Large V_m = I_mR + \frac{\omega_m}{K_v}$
+> $$\Large V_m = I_mR + \frac{\omega_m}{K_v}$$
 
 It will be useful later to solve the previous equations for $\Large I_m$.
 
-> $\Large I_mR = V_m - \frac{\omega_m}{K_v}$
+> $$\Large I_mR = V_m - \frac{\omega_m}{K_v}$$
 >
-> $\Large I_mR = \frac{V_mK_v}{K_v} - \frac{\omega_m}{K_v}$
+> $$\Large I_mR = \frac{V_mK_v}{K_v} - \frac{\omega_m}{K_v}$$
 >
-> $\Large I_m = \frac{V_mK_v}{RK_v} - \frac{\omega_m}{RK_v}$
+> $$\Large I_m = \frac{V_mK_v}{RK_v} - \frac{\omega_m}{RK_v}$$
 >
-> $\Large I_m = \frac{V_m}{R} - \frac{\omega_m}{RK_v}$
+> $$\Large I_m = \frac{V_m}{R} - \frac{\omega_m}{RK_v}$$
 
 
