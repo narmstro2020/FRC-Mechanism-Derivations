@@ -72,7 +72,7 @@ This can be used to solve for the angular acceleration of the gearbox in terms o
 
 * $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$ or Volts: $\Large V$
 * $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$  or Volts per Radians Per Second: $\Large \frac{Vs}{rad}$
-* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$ or $\Large \frac{Vs^2}{rad}$
+* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$  or Volts per Radians Per Second Squared: $\Large \frac{Vs^2}{rad}$
 * $\Large x$ : The state variable (angular position in our case). 
 * $\Large \dot{x}$: The rate of change of the $\Large x$ (angular velocity in our case)
 * $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (angular acceleration in our case)
@@ -107,7 +107,7 @@ Matching the $\Large I_m$ terms gives us.
 
 The torque due to static friction needs to be determined experimentally.  However $\Large k_s$ which is determined by SysId is related to the static friction torque as follows.
 
-> $$\Large \frac{k_s}{k_a} = \frac{\tau_{s_{m}}nG^2}{J}$
+> $$\Large \frac{k_s}{k_a} = \frac{\tau_{s_{m}}nG^2}{J}$$
 > 
 > $$\Large k_s\frac{1}{k_a} = k_s\frac{nGK_t}{J} = \frac{\tau_{s_{m}}nG^2}{J}$$
 > 

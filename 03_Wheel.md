@@ -1,4 +1,4 @@
-# Wheel Equations
+# Wheel Equations (Work in Progress)
 
 ## 1. Torque Equation
 
@@ -99,11 +99,11 @@ This can be used to solve for the acceleration of the object by the wheel in ter
 ### Variable Definitions
 
 * $\Large k_s$ : Static friction gain constant:  Measured in Amps: $\Large A$ or Volts: $\Large V$
-* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Radians Per Second: $\Large \frac{As}{rad}$  or Volts per Radians Per Second: $\Large \frac{Vs}{rad}$
-* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Radians Per Second Squared: $\Large \frac{As^2}{rad}$ or $\Large \frac{Vs^2}{rad}$
-* $\Large x$ : The state variable (angular position in our case). 
-* $\Large \dot{x}$: The rate of change of the $\Large x$ (angular velocity in our case)
-* $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (angular acceleration in our case)
+* $\Large k_v$ : Velocity gain constant (Please note the difference between $\Large k_v$ and $\Large K_v$. Measured in Amps per Meters Per Second: $\Large \frac{As}{m}$  or Volts per Meters Per Second: $\Large \frac{Vs}{m}$
+* $\Large k_a$ : Acceleration gain constant. Measured in Amps per Meters Per Second Squared: $\Large \frac{As^2}{m}$ or Volts per Meters Per Second Squared $\Large \frac{Vs^2}{m}$
+* $\Large x$ : The state variable (position in our case). 
+* $\Large \dot{x}$: The rate of change of the $\Large x$ (velocity in our case)
+* $\Large \ddot{x}$: The rate of change of $\Large \dot{x}$ (acceleration in our case)
 * $\Large u$ : The input used to control the state (current or voltage)
 
 WPILib provides a utility called SysId that will help with determining how best to control the state of the system.  
@@ -121,9 +121,9 @@ Solving for $\Large \ddot{x}$ gives us.
 
 We can make the following substitutions in the SysId equation to evaluate the characterization constants.
 
-> $\Large \dot{x} = \omega_g$, $\Large \ddot{x} = \alpha_g$, $\Large u = I_m$
+> $\Large \dot{x} = v$, $\Large \ddot{x} = a$, $\Large u = I_m$
 > 
-> $\Large \alpha_g = -\frac{k_v}{k_a} \omega_g + \frac{1}{k_a}I_m - \frac{k_s}{k_a}sgn(\omega_g)$
+> $\Large a = -\frac{k_v}{k_a} v + \frac{1}{k_a}I_m - \frac{k_s}{k_a}sgn(v)$
 
 Since $\Large \alpha_g$ doesn't have an $\Large \omega_g$ term then 
 
@@ -131,17 +131,17 @@ Since $\Large \alpha_g$ doesn't have an $\Large \omega_g$ term then
 
 Matching the $\Large I_m$ terms gives us.
 
-> $\Large \frac{1}{k_a} = \frac{nGK_t}{J}$, $\Large k_a = \frac{J}{nGK_t}$
+> $\Large \frac{1}{k_a} = \frac{nGK_t}{mr}$, $\Large k_a = \frac{mr}{nGK_t}$
 
 The torque due to static friction needs to be determined experimentally.  However $\Large k_s$ which is determined by SysId is related to the static friction torque as follows.
 
-> $\Large \frac{k_s}{k_a} = \frac{\tau_{s_{m}}nG^2}{J}$
+> $\Large \frac{k_s}{k_a} = \frac{F_snG^2}{mr}$
 > 
-> $\Large k_s\frac{1}{k_a} = k_s\frac{nGK_t}{J} = \frac{\tau_{s_{m}}nG^2}{J}$
+> $\Large k_s\frac{1}{k_a} = k_s\frac{nGK_t}{mr} = \frac{F_snG^2}{mr}$
 > 
-> $\Large k_s = \frac{J}{nGK_t}\frac{\tau_{s_{m}}nG^2}{J}$
+> $\Large k_s = \frac{mr}{nGK_t}\frac{F_snG^2}{mr}$
 > 
-> $\Large k_s = \frac{\tau_{s_{m}}G}{K_t}$
+> $\Large k_s = \frac{F_sG}{K_t}$
 
 ## 6. Voltage Control Model
 
