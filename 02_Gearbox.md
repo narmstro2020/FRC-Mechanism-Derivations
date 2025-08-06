@@ -158,4 +158,12 @@ Matching the $\Large \omega_g$ terms gives us
 > 
 > $\Large k_v = \frac{G}{K_v}$
 
+The torque due to static friction needs to be determined experimentally.  However $\Large k_s$ which is determined by SysId is related to the static friction torque as follows.
 
+> $\Large \frac{k_s}{k_a} = \frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s\frac{1}{k_a} = k_s\frac{nGK_t}{RJ} = \frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s = \frac{RJ}{nGK_t}\frac{\tau_{s_{m}}nG^2}{J}$
+> 
+> $\Large k_s = \frac{\tau_{s_{m}}RG}{K_t}$
