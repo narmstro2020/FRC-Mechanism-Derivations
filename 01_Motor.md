@@ -1,4 +1,4 @@
-# Motor Equations
+# Motor Equations (Work in Progress)
 
 ## 1. Torque Equation
 

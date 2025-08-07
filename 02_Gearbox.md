@@ -1,4 +1,4 @@
-# Gearbox Equations
+# Gearbox Equations (Work in Progress)
 
 ## 1. Torque Equation
 
